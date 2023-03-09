@@ -2262,12 +2262,13 @@ export const useBullshit = () => {
         return Math.floor(Math.random() * int)
     }
 
-    function shuffle(str: string[]) {
-        for (let i = str.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * (i + 1));
-            [str[i], str[j]] = [str[j], str[i]]
+    function shuffle(strs: string[]) {
+        let newStrs = [...strs]
+        for (let i = newStrs.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1))
+            ;[newStrs[i], newStrs[j]] = [newStrs[j], newStrs[i]]
         }
-        return str
+        return newStrs
     }
 
     function countSpecial(str: string) {
